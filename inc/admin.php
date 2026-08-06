@@ -66,3 +66,43 @@ function mcmp_remove_admin_menu_items() {
 	}
 }
 add_action( 'admin_menu', 'mcmp_remove_admin_menu_items', 999 );
+
+/**
+ * Register a custom "Confirmed" order status.
+ */
+function mcmp_register_confirmed_order_status() {
+	register_post_status( 'wc-confirmed', array(
+		'label'                     => _x( 'Confirmed', 'Order status', 'emotousa-extended' ),
+		'public'                    => true,
+		'exclude_from_search'       => false,
+		'show_in_admin_all_list'    => true,
+		'show_in_admin_status_list' => true,
+		'label_count'               => _n_noop(
+			'Confirmed <span class="count">(%s)</span>',
+			'Confirmed <span class="count">(%s)</span>',
+			'emotousa-extended'
+		),
+	) );
+}
+add_action( 'init', 'mcmp_register_confirmed_order_status' );
+
+/**
+ * Insert "Confirmed" into the WooCommerce order status list, right after Processing.
+ *
+ * @param array $order_statuses Existing order statuses.
+ * @return array Modified order statuses.
+ */
+function mcmp_add_confirmed_to_order_statuses( $order_statuses ) {
+	$new_statuses = array();
+
+	foreach ( $order_statuses as $key => $label ) {
+		$new_statuses[ $key ] = $label;
+
+		if ( 'wc-processing' === $key ) {
+			$new_statuses['wc-confirmed'] = _x( 'Confirmed', 'Order status', 'emotousa-extended' );
+		}
+	}
+
+	return $new_statuses;
+}
+add_filter( 'wc_order_statuses', 'mcmp_add_confirmed_to_order_statuses' );
