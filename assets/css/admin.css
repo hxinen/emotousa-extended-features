@@ -1,0 +1,20 @@
+/* E-MotoUSA Extended Features - Admin Styles */
+
+/* Variation form layout overrides (Two column layout for variation meta fields) */
+.woocommerce_variation .form-row.form-row-first,
+.woocommerce_variation .form-row.form-row-last {
+	float: left;
+	width: 48%;
+	margin-right: 2%;
+}
+
+.woocommerce_variation .form-row.form-row-last {
+	margin-right: 0;
+}
+
+/* General admin utility classes */
+.half-width {
+	width: 48%;
+	display: inline-block;
+	margin-right: 2%;
+}

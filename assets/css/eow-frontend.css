@@ -1,0 +1,166 @@
+/* E-MotoUSA Extended Features - OTP Frontend Styles (Blocksy Integrated) */
+
+body.eow-locked { 
+	overflow: hidden; 
+}
+
+#eow-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 999999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(15, 23, 42, 0.75);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	padding: 16px;
+}
+
+#eow-overlay.is-open {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.eow-modal {
+	position: relative;
+	/* Use Blocksy's main background and text colors */
+	background: #fff;
+	color: var(--theme-palette-color-3, #3a3a3a);
+	border-radius: 20px;
+	padding: 40px 36px 32px;
+	width: 100%;
+	max-width: 500px;
+	/* Matches standard Blocksy narrow container width */
+	max-width: var(--theme-narrow-container-max-width, 450px);
+	box-shadow: 0 24px 64px rgba(0, 0, 0, 0.15);
+	text-align: center;
+	animation: eow-pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes eow-pop {
+	from { transform: scale(0.95); opacity: 0; }
+	to   { transform: scale(1);   opacity: 1; }
+}
+
+.eow-icon { 
+	font-size: 48px; 
+	margin-bottom: 15px; 
+}
+
+.eow-heading {
+	margin: 0 0 10px;
+	/* Inherit Blocksy Heading font styles and colors */
+	font-family: var(--theme-font-family, inherit);
+	color: var(--theme-heading-color, var(--theme-palette-color-4, #111827));
+	font-size: 26px; 
+	font-weight: 800;
+	line-height: 1.2;
+}
+
+.eow-subtext {
+	margin: 0 0 22px;
+	font-size: 15px; 
+	color: var(--theme-palette-color-3, #6b7280); 
+	line-height: 1.5;
+}
+
+/* Inherit Blocksy Form Input Styling */
+.eow-input-row { 
+	margin-bottom: 12px; 
+}
+
+.eow-input-row input[type="email"] {
+	width: 100%;
+	padding: var(--theme-form-field-padding, 12px 16px);
+	font-size: var(--theme-form-font-size, 16px);
+	font-family: var(--theme-font-family, inherit);
+	border-width: var(--theme-form-field-border-width, 1px);
+	border-style: var(--theme-form-field-border-style, solid);
+	border-color: var(--theme-form-field-border-initial-color, #d1d5db);
+	background: var(--theme-form-field-background-initial-color, transparent);
+	color: var(--theme-form-text-initial-color, inherit);
+	border-radius: 6px;
+	outline: none;
+	transition: all 0.2s;
+}
+
+.eow-input-row input[type="email"]:focus {
+	border-color: var(--theme-palette-color-1, #00b894); /* Brand Color */
+	color: var(--theme-form-text-focus-color, inherit);
+}
+
+/* The New Visual OTP Input (Specialized styling but matches theme borders) */
+#mcmp-visual-otp {
+	border-width: var(--theme-form-field-border-width, 2px);
+	border-style: var(--theme-form-field-border-style, solid);
+	border-color: var(--theme-palette-color-5, #d1d5db);
+	color: var(--theme-heading-color, #111827);
+	background: var(--theme-form-field-background-initial-color, transparent);
+}
+#mcmp-visual-otp:focus {
+	border-color: var(--theme-palette-color-1, #00b894) !important;
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+	outline: none;
+}
+
+.eow-error {
+	color: #dc2626; /* Standard web error red */
+	font-size: 13px;
+	min-height: 20px;
+	margin-bottom: 16px;
+	font-weight: 600;
+}
+
+/* Inherit Blocksy Global Button Styling */
+.eow-btn {
+	width: 100%;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--theme-button-font-family, inherit);
+	padding: var(--theme-button-padding, 14px 20px);
+	font-size: var(--theme-button-font-size, 16px); 
+	font-weight: var(--theme-button-font-weight, 700);
+	border: var(--theme-button-border, none);
+	border-radius: var(--theme-button-border-radius, 6px);
+	cursor: pointer;
+	transition: all var(--theme-transition, 0.2s);
+}
+
+.eow-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.eow-btn-primary {
+	background: var(--theme-button-background-initial-color, var(--theme-palette-color-1, #111827));
+	color: var(--theme-button-text-initial-color, #ffffff);
+	box-shadow: var(--theme-button-shadow, none);
+}
+
+.eow-btn-primary:hover:not(:disabled) {
+	background: var(--theme-button-background-hover-color, var(--theme-palette-color-2, #374151));
+	color: var(--theme-button-text-hover-color, #ffffff);
+	transform: var(--theme-button-transform, translateY(-1px));
+}
+
+#eow-otp-subtext {
+	color: var(--theme-palette-color-1, #00b894); /* Uses your primary brand color */
+}
+
+.eow-resend-link {
+	background: none;
+	border: none;
+	color: var(--theme-palette-color-1, #00b894);
+	cursor: pointer;
+	font-size: 14px;
+	text-decoration: underline;
+}
+
+.eow-resend-link:disabled {
+	color: var(--theme-palette-color-3, #9ca3af);
+}

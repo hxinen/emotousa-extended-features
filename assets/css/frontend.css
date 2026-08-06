@@ -1,0 +1,14 @@
+/* Style for badges above the title */
+.location-tag {
+	position: absolute;
+	top: 13px;
+	left:15px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 3px 8px;
+}
+
+.location-tag.loc-maui { background-color: #35ff22; color: #000; }
+.location-tag.loc-ca { background-color: #2d2a2a; color: #fff; }
+.location-tag.pre-order-store-pickup { background-color: #ff2b2b; color: #fff; }
